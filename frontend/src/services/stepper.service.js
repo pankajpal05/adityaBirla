@@ -1,7 +1,7 @@
-const fetchTemplateViewData = async () => {
+const fetchStepperData = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_API_URL}/card-views?populate[templateView][populate]=*&populate[cardView]populate=*     `,
+      `${process.env.NEXT_API_URL}/card-progresses?populate[stepper][populate]=*`,
       { cache: "no-store" },
     );
     const responseBody = await response.json();
@@ -10,4 +10,4 @@ const fetchTemplateViewData = async () => {
     return {};
   }
 };
-export { fetchTemplateViewData };
+export { fetchStepperData };
