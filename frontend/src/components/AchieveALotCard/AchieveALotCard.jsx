@@ -28,7 +28,7 @@ const AchieveALotCard = ({ icon, title, description, className }) => {
             </svg>
           </span>
         </h2>
-        <p className="ml-[6px] text-[18px] leading-[22px] font-normal ">
+        <p className="ml-[6px] leading-[22px] text-gray-600 ">
           {description}
         </p>
       </div>
