@@ -1,7 +1,8 @@
 import AchieveALotCard from "@/components/AchieveALotCard/AchieveALotCard";
 import Stepper from "@/components/Stepper/Stepper";
+import { fetchTemplateViewData } from "@/services/templateView.service";
 
-export default function Home() {
+export default async function Home() {
   const cardData = [
     {
       icon: "icon",
@@ -41,6 +42,16 @@ export default function Home() {
     },
   ];
 
+  const {data} = await fetchTemplateViewData()
+  if (!data) {
+      return false
+  }
+  console.log(data);
+  
+  const [templateView,cardView] = data[0]
+  console.log(templateView,cardView);
+  
+
   return (
     <div>
       <div className="bg-gray-200 p-8 flex-col flex gap-[66px] px-[141px]">
@@ -54,7 +65,7 @@ export default function Home() {
           </h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center bg-gray-200 gap-8">
-          {cardData.map((card, index) => (
+          {templateData.map((card, index) => (
             <AchieveALotCard
               key={index}
               icon={card.icon}
