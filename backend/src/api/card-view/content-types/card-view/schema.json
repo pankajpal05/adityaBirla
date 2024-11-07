@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_views",
+  "info": {
+    "singularName": "card-view",
+    "pluralName": "card-views",
+    "displayName": "cardView"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-component.card"
+    }
+  }
+}

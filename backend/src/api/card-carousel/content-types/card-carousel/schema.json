@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_carousels",
+  "info": {
+    "singularName": "card-carousel",
+    "pluralName": "card-carousels",
+    "displayName": "CardCarousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardCarouselComp": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-component.card"
+    },
+    "dateComponent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "date-component.card-date"
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

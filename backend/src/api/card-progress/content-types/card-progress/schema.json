@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_progresses",
+  "info": {
+    "singularName": "card-progress",
+    "pluralName": "card-progresses",
+    "displayName": "cardProgress"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardProgressbar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-component.card"
+    }
+  }
+}

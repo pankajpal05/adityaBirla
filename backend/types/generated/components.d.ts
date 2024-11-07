@@ -7,10 +7,8 @@ export interface CardComponentCard extends Struct.ComponentSchema {
     displayName: 'card';
   };
   attributes: {
-    cardDate: Schema.Attribute.Component<'date-component.card-date', false>;
     description: Schema.Attribute.Text;
-    Icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    tag: Schema.Attribute.String & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

@@ -369,6 +369,165 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCardCarouselCardCarousel
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'card_carousels';
+  info: {
+    displayName: 'CardCarousel';
+    pluralName: 'card-carousels';
+    singularName: 'card-carousel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardCarouselComp: Schema.Attribute.Component<'card-component.card', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateComponent: Schema.Attribute.Component<
+      'date-component.card-date',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::card-carousel.card-carousel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCardGridViewCardGridView
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'card_grid_views';
+  info: {
+    displayName: 'CardGridView';
+    pluralName: 'card-grid-views';
+    singularName: 'card-grid-view';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardGrid: Schema.Attribute.Component<'card-component.card', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateComponent: Schema.Attribute.Component<
+      'date-component.card-date',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::card-grid-view.card-grid-view'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCardListViewCardListView
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'card_list_views';
+  info: {
+    displayName: 'cardListView';
+    pluralName: 'card-list-views';
+    singularName: 'card-list-view';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardListView: Schema.Attribute.Component<'card-component.card', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateComponent: Schema.Attribute.Component<
+      'date-component.card-date',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::card-list-view.card-list-view'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tag: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCardProgressCardProgress
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'card_progresses';
+  info: {
+    displayName: 'cardProgress';
+    pluralName: 'card-progresses';
+    singularName: 'card-progress';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardProgressbar: Schema.Attribute.Component<'card-component.card', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::card-progress.card-progress'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCardViewCardView extends Struct.CollectionTypeSchema {
+  collectionName: 'card_views';
+  info: {
+    displayName: 'cardView';
+    pluralName: 'card-views';
+    singularName: 'card-view';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    cardInformation: Schema.Attribute.Component<'card-component.card', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::card-view.card-view'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -878,6 +1037,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::card-carousel.card-carousel': ApiCardCarouselCardCarousel;
+      'api::card-grid-view.card-grid-view': ApiCardGridViewCardGridView;
+      'api::card-list-view.card-list-view': ApiCardListViewCardListView;
+      'api::card-progress.card-progress': ApiCardProgressCardProgress;
+      'api::card-view.card-view': ApiCardViewCardView;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

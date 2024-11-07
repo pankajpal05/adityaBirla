@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_list_views",
+  "info": {
+    "singularName": "card-list-view",
+    "pluralName": "card-list-views",
+    "displayName": "cardListView"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardListView": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-component.card"
+    },
+    "dateComponent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "date-component.card-date"
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_grid_views",
+  "info": {
+    "singularName": "card-grid-view",
+    "pluralName": "card-grid-views",
+    "displayName": "CardGridView"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cardGrid": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-component.card"
+    },
+    "dateComponent": {
+      "type": "component",
+      "repeatable": false,
+      "component": "date-component.card-date"
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
