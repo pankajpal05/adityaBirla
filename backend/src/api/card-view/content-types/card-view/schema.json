@@ -4,17 +4,23 @@
   "info": {
     "singularName": "card-view",
     "pluralName": "card-views",
-    "displayName": "cardView"
+    "displayName": "templateView",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "cardInformation": {
+    "templateView": {
       "type": "component",
       "repeatable": false,
       "component": "card-component.card"
+    },
+    "cardView": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-view-component.card-view"
     }
   }
 }
