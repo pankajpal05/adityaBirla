@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card-grid-view",
     "pluralName": "card-grid-views",
-    "displayName": "CardGridView"
+    "displayName": "GridView",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,11 @@
     "tag": {
       "type": "string",
       "required": true
+    },
+    "cardView": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card-view-component.card-view"
     }
   }
 }

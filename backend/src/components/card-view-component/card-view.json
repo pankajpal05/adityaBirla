@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_card_view_component_card_views",
+  "info": {
+    "displayName": "cardView"
+  },
+  "options": {},
+  "attributes": {
+    "CardView": {
+      "type": "enumeration",
+      "enum": [
+        "ListView",
+        "GridView",
+        "TemplateView"
+      ]
+    }
+  }
+}
