@@ -374,7 +374,7 @@ export interface ApiCardCarouselCardCarousel
   collectionName: 'card_carousels';
   info: {
     description: '';
-    displayName: 'CardCarousel';
+    displayName: 'Carousel';
     pluralName: 'card-carousels';
     singularName: 'card-carousel';
   };
@@ -382,7 +382,7 @@ export interface ApiCardCarouselCardCarousel
     draftAndPublish: true;
   };
   attributes: {
-    cardCarouselComp: Schema.Attribute.Component<'card-component.card', false>;
+    CarouselComponent: Schema.Attribute.Component<'card-component.card', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -408,7 +408,8 @@ export interface ApiCardGridViewCardGridView
   extends Struct.CollectionTypeSchema {
   collectionName: 'card_grid_views';
   info: {
-    displayName: 'CardGridView';
+    description: '';
+    displayName: 'GridView';
     pluralName: 'card-grid-views';
     singularName: 'card-grid-view';
   };
@@ -417,6 +418,10 @@ export interface ApiCardGridViewCardGridView
   };
   attributes: {
     cardGrid: Schema.Attribute.Component<'card-component.card', false>;
+    cardView: Schema.Attribute.Component<
+      'card-view-component.card-view',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -442,7 +447,8 @@ export interface ApiCardListViewCardListView
   extends Struct.CollectionTypeSchema {
   collectionName: 'card_list_views';
   info: {
-    displayName: 'cardListView';
+    description: '';
+    displayName: 'ListView';
     pluralName: 'card-list-views';
     singularName: 'card-list-view';
   };
@@ -451,6 +457,10 @@ export interface ApiCardListViewCardListView
   };
   attributes: {
     cardListView: Schema.Attribute.Component<'card-component.card', false>;
+    cardView: Schema.Attribute.Component<
+      'card-view-component.card-view',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -476,7 +486,8 @@ export interface ApiCardProgressCardProgress
   extends Struct.CollectionTypeSchema {
   collectionName: 'card_progresses';
   info: {
-    displayName: 'cardProgress';
+    description: '';
+    displayName: 'stepper';
     pluralName: 'card-progresses';
     singularName: 'card-progress';
   };
@@ -484,7 +495,6 @@ export interface ApiCardProgressCardProgress
     draftAndPublish: true;
   };
   attributes: {
-    cardProgressbar: Schema.Attribute.Component<'card-component.card', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -495,6 +505,7 @@ export interface ApiCardProgressCardProgress
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    stepper: Schema.Attribute.Component<'card-component.card', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -504,7 +515,8 @@ export interface ApiCardProgressCardProgress
 export interface ApiCardViewCardView extends Struct.CollectionTypeSchema {
   collectionName: 'card_views';
   info: {
-    displayName: 'cardView';
+    description: '';
+    displayName: 'templateView';
     pluralName: 'card-views';
     singularName: 'card-view';
   };
@@ -512,7 +524,10 @@ export interface ApiCardViewCardView extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    cardInformation: Schema.Attribute.Component<'card-component.card', false>;
+    cardView: Schema.Attribute.Component<
+      'card-view-component.card-view',
+      false
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -523,6 +538,7 @@ export interface ApiCardViewCardView extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    templateView: Schema.Attribute.Component<'card-component.card', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

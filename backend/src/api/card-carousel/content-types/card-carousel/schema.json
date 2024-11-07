@@ -4,7 +4,7 @@
   "info": {
     "singularName": "card-carousel",
     "pluralName": "card-carousels",
-    "displayName": "CardCarousel",
+    "displayName": "Carousel",
     "description": ""
   },
   "options": {
@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "cardCarouselComp": {
+    "CarouselComponent": {
       "type": "component",
       "repeatable": false,
       "component": "card-component.card"
