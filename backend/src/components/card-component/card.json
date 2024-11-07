@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_card_component_cards",
+  "info": {
+    "displayName": "card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "tag": {
+      "type": "string",
+      "required": true
+    },
+    "cardDate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "date-component.card-date"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_date_component_card_dates",
+  "info": {
+    "displayName": "cardDate",
+    "icon": ""
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "time"
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}
