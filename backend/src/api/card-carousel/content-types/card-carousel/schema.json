@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card-carousel",
     "pluralName": "card-carousels",
-    "displayName": "CardCarousel"
+    "displayName": "CardCarousel",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

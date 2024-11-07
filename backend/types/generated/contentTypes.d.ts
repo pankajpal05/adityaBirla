@@ -373,6 +373,7 @@ export interface ApiCardCarouselCardCarousel
   extends Struct.CollectionTypeSchema {
   collectionName: 'card_carousels';
   info: {
+    description: '';
     displayName: 'CardCarousel';
     pluralName: 'card-carousels';
     singularName: 'card-carousel';

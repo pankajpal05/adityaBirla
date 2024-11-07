@@ -8,7 +8,7 @@ export interface CardComponentCard extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    Image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -16,12 +16,13 @@ export interface CardComponentCard extends Struct.ComponentSchema {
 export interface DateComponentCardDate extends Struct.ComponentSchema {
   collectionName: 'components_date_component_card_dates';
   info: {
+    description: '';
     displayName: 'cardDate';
     icon: '';
   };
   attributes: {
-    date: Schema.Attribute.Date;
-    time: Schema.Attribute.Time;
+    date: Schema.Attribute.String;
+    time: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
