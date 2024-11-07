@@ -2,15 +2,17 @@
   "collectionName": "components_date_component_card_dates",
   "info": {
     "displayName": "cardDate",
-    "icon": ""
+    "icon": "",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "time": {
-      "type": "time"
+      "type": "string",
+      "required": true
     },
     "date": {
-      "type": "date"
+      "type": "string"
     }
   }
 }
