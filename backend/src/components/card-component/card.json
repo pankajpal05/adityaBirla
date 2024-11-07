@@ -13,22 +13,13 @@
     "description": {
       "type": "text"
     },
-    "Icon": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
         "images"
       ]
-    },
-    "tag": {
-      "type": "string",
-      "required": true
-    },
-    "cardDate": {
-      "type": "component",
-      "repeatable": false,
-      "component": "date-component.card-date"
     }
   }
 }
