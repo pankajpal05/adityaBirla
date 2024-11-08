@@ -1,100 +1,160 @@
-import Image from "next/image";
+import TemplateView from "@/components/TemplateView/TemplateView";
+import Stepper from "@/components/Stepper/Stepper";
+import { fetchTemplateViewData } from "@/services/templateView.service";
+import _get from "lodash/get";
+import { getImageUrl } from "@/utils/common.util";
+import { fetchStepperData } from "@/services/stepper.service";
+import Card from "@/components/Card/Card";
+import { fetchListViewData } from "@/services/listView.service";
+import { fetchGridViewData } from "@/services/gridView.service";
+import Carousel from "@/components/Carousel/Carousel";
+import { TEMPLATE_VIEW_BORDER_COLOR } from "@/constant/global.constant";
+export default async function Home() {
+  const templateData = (await fetchTemplateViewData()) || [];
+  const stepperData = (await fetchStepperData()) || [];
+  const listViewData = (await fetchListViewData()) || [];
+  const gridViewData = (await fetchGridViewData()) || [];
 
-export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      {/* templateView */}
+      <div className="bg-gray-200 p-8 flex-col flex gap-[66px] lg:px-[141px]">
+        <div className="flex flex-col items-center">
+          <h1 className="font-extrabold lg:text-[50px] text-[32px]">
+            Achieve A Lot <span className="text-red-500">With...</span>
+          </h1>
+          <h3 className="text-[20px]">
+            Sollicitudin vitae eu nulla amet ut vestibulum senectus enim. Etiam
+            cras sapien ipsum mi sit urna auctor facilisi. Mollis
+          </h3>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center bg-gray-200 gap-8">
+          {templateData.map((card, index) => {
+            const imageUrl = getImageUrl(_get(card.templateView, "Image.url"));
+            const title = card.templateView.title;
+            const description = card.templateView.description;
+            return (
+              <TemplateView
+                key={index}
+                icon={imageUrl}
+                title={title}
+                description={description}
+                className={TEMPLATE_VIEW_BORDER_COLOR[index]}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      {/* stepper component */}
+      <div className="bg-gray-200 flex-col flex px-8 lg:px-[141px] gap-[30px] py-10">
+        <div className="flex flex-col items-center">
+          <h1 className="font-extrabold lg:text-[50px] text-[32px] tracking-[-3.5px] ">
+            Getting Started With{" "}
+            <span className="text-[#8B151B]">ABC Credit Card</span>
+          </h1>
+          <h3 className="text-[20px] text-[#000000] opacity-80 tracking-[0px]">
+            Sollicitudin vitae eu nulla amet ut vestibulum senectus enim. Etiam
+            cras sapien ipsum mi sit urna auctor facilisi. Mollis
+          </h3>
+        </div>
+        <div className="flex gap-8 justify-between  max-lg:flex-col">
+          {stepperData.map((card, index) => {
+            const title = card.stepper.title;
+            const description = card.stepper.description;
+            return (
+              <Stepper
+                key={index}
+                step={index}
+                title={title}
+                description={description}
+                length={stepperData.length}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="p-6 bg-gray-100 ">
+        <div className="flex justify-between">
+          <div>
+            <h2 className="lg:text-[50px] text-[32px] font-bold text-gray-800 mb-6">
+              Latest In <span className="text-[#8A081C]">Insurance</span>
+            </h2>
+          </div>
+          <div className="flex items-center justify-center">
+            <button className="text-base bg-white text-[#8A081C] border-2 border-[#8A081C] hover:bg-[#8A081C] hover:text-white px-8 py-2 rounded-full  uppercase">
+              VIEW ALL
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+          {gridViewData.map((article, index) => {
+            const imageUrl = getImageUrl(_get(article.cardGrid, "Image.url"));
+            const title = article.cardGrid.title;
+            const date = article.dateComponent.date;
+            const category = article.tag;
+            const readTime = article.dateComponent.readTime;
+
+            return (
+              <Card
+                key={index}
+                title={title}
+                date={date}
+                category={category}
+                readTime={readTime}
+                imageUrl={imageUrl}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      {/* cards Carousel */}
+      <div className="p-6 bg-gray-100">
+        <div className="flex justify-between">
+          <div>
+            <h2 className="lg:text-[50px] text-[32px] font-extrabold text-gray-800 mb-6">
+              Trending <span className="text-[#8A081C]">Articles</span>
+            </h2>
+          </div>
+          <div className="flex items-center justify-center">
+            <button className="text-base bg-[#8A081C] px-8 py-2 rounded-full text-white uppercase">
+              VIEW ALL
+            </button>
+          </div>
+        </div>
+
+        <div className="">
+          <Carousel />
+        </div>
+      </div>
+
+      {/* list view */}
+      <div className="p-6 bg-gray-100">
+        <div className="grid grid-cols-1 gap-4">
+          {listViewData.map((article, index) => {
+            const imageUrl = getImageUrl(
+              _get(article.cardListView, "Image.url")
+            );
+            const title = article.cardListView.title;
+            const date = article.dateComponent.date;
+            const category = article.tag;
+            const readTime = article.dateComponent.readTime;
+            return (
+              <Card
+                key={index}
+                title={title}
+                date={date}
+                category={category}
+                readTime={readTime}
+                imageUrl={imageUrl}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
