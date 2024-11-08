@@ -1,8 +1,8 @@
-const fetchCrousalData = async () => {
+const fetchCarouselData = async () => {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/card-carousels?populate[CarouselComponent][populate]=*&populate[dateComponent]populate=*`,
-      { cache: "no-store" },
+      { cache: "no-store" }
     );
     const responseBody = await response.json();
     return responseBody?.data;
@@ -10,4 +10,4 @@ const fetchCrousalData = async () => {
     return {};
   }
 };
-export { fetchCrousalData };
+export { fetchCarouselData };

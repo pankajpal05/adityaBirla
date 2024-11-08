@@ -7,7 +7,7 @@ import { fetchStepperData } from "@/services/stepper.service";
 import Card from "@/components/Card/Card";
 import { fetchListViewData } from "@/services/listView.service";
 import { fetchGridViewData } from "@/services/gridView.service";
-import Crousal from "@/components/Crousal/Crousal";
+import Carousel from "@/components/Carousel/Carousel";
 import { TEMPLATE_VIEW_BORDER_COLOR } from "@/constant/global.constant";
 export default async function Home() {
   const templateData = (await fetchTemplateViewData()) || [];
@@ -111,7 +111,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* cards crousal */}
+      {/* cards Carousel */}
       <div className="p-6 bg-gray-100">
         <div className="flex justify-between">
           <div>
@@ -127,7 +127,7 @@ export default async function Home() {
         </div>
 
         <div className="">
-          <Crousal />
+          <Carousel />
         </div>
       </div>
 

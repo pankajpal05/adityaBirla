@@ -1,26 +1,25 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-// Import Swiper React components
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./Crousal.css";
+import "./carousel.css";
 
-import { Navigation, Pagination } from "swiper/modules";
-import { fetchCrousalData } from "@/services/crousal.service";
+import { Pagination } from "swiper/modules";
+import { fetchCarouselData } from "@/services/Carousel.service";
 import { getImageUrl } from "@/utils/common.util";
 import _get from "lodash/get";
 import Card from "../Card/Card";
 
-const Crousal = () => {
-  const [crousalCardData, setCrousalCardData] = useState([]);
+const Carousel = () => {
+  const [CarouselCardData, setCarouselCardData] = useState([]);
 
   const apiCall = async () => {
-    const crousalData = (await fetchCrousalData()) || [];
-    setCrousalCardData(crousalData);
+    const CarouselData = (await fetchCarouselData()) || [];
+    setCarouselCardData(CarouselData);
   };
 
   useEffect(() => {
@@ -56,7 +55,7 @@ const Crousal = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {crousalCardData.map((article, index) => {
+        {CarouselCardData.map((article, index) => {
           const imageUrl = getImageUrl(
             _get(article.CarouselComponent, "Image.url")
           );
@@ -83,4 +82,4 @@ const Crousal = () => {
     </>
   );
 };
-export default Crousal;
+export default Carousel;
