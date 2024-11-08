@@ -18,7 +18,7 @@ const Card = ({
           <img
             src={imageUrl}
             alt={title}
-            className="transition-transform object-cover duration-300 group-hover:scale-105"
+            className="transition-transform w-full object-cover duration-300 group-hover:scale-105"
           />
         </div>
 
