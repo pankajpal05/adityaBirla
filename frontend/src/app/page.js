@@ -1,5 +1,3 @@
-import TemplateView from "@/components/TemplateView/TemplateView";
-import Stepper from "@/components/Stepper/Stepper";
 import { fetchTemplateViewData } from "@/services/templateView.service";
 import _get from "lodash/get";
 import { getImageUrl } from "@/utils/common.util";
@@ -8,7 +6,6 @@ import Card from "@/components/Card/Card";
 import { fetchListViewData } from "@/services/listView.service";
 import { fetchGridViewData } from "@/services/gridView.service";
 import Carousel from "@/components/Carousel/Carousel";
-import { TEMPLATE_VIEW_BORDER_COLOR } from "@/constant/global.constant";
 export default async function Home() {
   const templateData = (await fetchTemplateViewData()) || [];
   const stepperData = (await fetchStepperData()) || [];
@@ -34,12 +31,13 @@ export default async function Home() {
             const title = card.templateView.title;
             const description = card.templateView.description;
             return (
-              <TemplateView
+              <Card
                 key={index}
                 icon={imageUrl}
                 title={title}
                 description={description}
-                className={TEMPLATE_VIEW_BORDER_COLOR[index]}
+                cardView={"templateView"}
+                step={index}
               />
             );
           })}
@@ -63,12 +61,13 @@ export default async function Home() {
             const title = card.stepper.title;
             const description = card.stepper.description;
             return (
-              <Stepper
+              <Card
                 key={index}
                 step={index}
                 title={title}
                 description={description}
                 length={stepperData.length}
+                cardView={"stepper"}
               />
             );
           })}
@@ -105,6 +104,7 @@ export default async function Home() {
                 category={category}
                 readTime={readTime}
                 imageUrl={imageUrl}
+                cardView={"gridView"}
               />
             );
           })}
@@ -150,6 +150,7 @@ export default async function Home() {
                 category={category}
                 readTime={readTime}
                 imageUrl={imageUrl}
+                cardView={"listView"}
               />
             );
           })}
